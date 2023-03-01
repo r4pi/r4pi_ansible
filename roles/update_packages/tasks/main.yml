@@ -12,7 +12,7 @@
     autoclean: true
     install_recommends: true
 
-- name: Check if a reboot is requiered
+- name: Check if a reboot is required
   stat:
     path: /var/run/reboot-required
   notify: reboot_raspberry
