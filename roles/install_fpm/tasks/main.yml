@@ -1,0 +1,20 @@
+---
+- name: Install FPM
+  command: "fpm --version"
+  register: version_fpm
+  changed_when: false
+  failed_when: false
+
+- block:
+  - name: Install FPM deps ruby and rubygems
+    apt:
+      name:
+        - ruby
+        - rubygems
+      state: present
+  - name: Install the fpm gem
+    become_flags: 'su - -c'
+    shell:
+      cmd: "gem install fpm"
+    register: fpm_install
+    changed_when: fpm_install.stderr != ""

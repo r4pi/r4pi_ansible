@@ -75,7 +75,6 @@
           - libssh-dev
           - libteckit0
           - libtexlua53
-          - libtexluajit2
           - libtext-unidecode-perl
           - libtiff-dev
           - libtool
@@ -125,3 +124,8 @@
           - xfonts-utils
           - xvfb
         state: present
+    - name: Install fpm
+      import_role:
+        name: install_fpm
+      tags: fpm
+
