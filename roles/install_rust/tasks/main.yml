@@ -1,0 +1,15 @@
+---
+- name: Get the installed Rust toolchain version
+  command: "rustc --version"
+  register: version_rust
+  changed_when: false
+  failed_when: false
+
+- block:
+  - name: Install Rust toolchain with rustup
+    shell:
+      cmd: "curl --proto '=https' --tls1.2 -sSf https://sh.rustup.rs/ | sh -s --default-toolchain={{ rust_version }} -- -y"
+      creates: "/home/{{ ansible_user }}/.cargo/bin/rustc"
+  when: "rust_version |\n
+      regex_search('^v\\d\\.\\d+\\.\\d+', multiline=True) |\n
+      trim | string not in version_rust | string"

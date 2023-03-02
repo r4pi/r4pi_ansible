@@ -1,66 +1,9 @@
 ---
 # System Configurations ########################################################
 
-# Swap parameters
-swap_file_path: /var/swap.1
-# Use any of the following suffixes
-# c=1
-# w=2
-# b=512
-# kB=1000
-# K=1024
-# MB=1000*1000
-# M=1024*1024
-# xM=M
-# GB=1000*1000*1000
-# G=1024*1024*1024
-swap_file_size: 3GB
-swappiness: '10'
+# Security Configurations #####################################################
 
-# Install Nginx?
-install_nginx: true
+# Software Versions ###########################################################
 
-# Install PostgreSQL?
-install_postgresql: true
-
-# Security Configurations ######################################################
-
-# Ports to open
-exposed_ports:
-  - { rule: 'allow', port: 22, proto: 'tcp' }     # ssh
-  - { rule: 'allow', port: 22, proto: 'udp' }     # ssh
-  - { rule: 'allow', port: 80, proto: 'tcp' }     # http
-  - { rule: 'allow', port: 5432, proto: 'tcp' }   # Postgresql (ommit if Postgresql is not installed)
-  - { rule: 'allow', port: 5432, proto: 'udp' }   # Postgresql (ommit if Postgresql is not installed)
-  # - { rule: 'allow', port: 8787, proto: 'tcp' } # RStudio Server (uncomment if Nginx is not installed)
-  # - { rule: 'allow', port: 3838, proto: 'tcp' } # Shiny Server (uncomment if Nginx is not installed)
-
-# Password for the main PostgreSQL user (ignore if PostgreSQL is not installed)
-postgres_password: 'very_secure_password'
-
-# Access rules for Postgresql (ignore if PostgreSQL is not installed)
-postgresql_rules:
-  - { contype: local, users: all, address: samehost, method: trust }
-  - { contype: local, users: postgres, address: samehost, method: trust }
-  - { contype: host, users: all, address: "{{ ansible_default_ipv4.network }}/24", method: trust }
-  - { contype: host, users: all, address: 0.0.0.0/0, method: password }
-  - { contype: host, users: all, address: 127.0.0.1/32, method: md5 }
-  - { contype: host, users: all, address: '::1/128', method: trust }
-
-# Main Software Versions #######################################################
-
-# R version to install
-use_r4pi: true # If set to true the latest R version will be installed, this is only compatible with
-                # Raspberry Pi OS.
-use_rig: false # Don't forget to specify an R version in the following line
-r_version: '' # (e.g. '4.2.2') Currently, you can only choose the R version if it's going to be
-                   # installed with rig or compiled (with both 'use_r4pi' and 'use_rig' set as false).
-
-# Quarto version to install
-quarto_version: '1.3.230'
-
-# Shiny-server version to install
-shiny_server_version: 'v1.5.20.1002'
-
-# RStudio version to install
-rstudio_version: '2022.12.1+365'
+# Rust toolchain version
+rust_version: '1.67.1'
