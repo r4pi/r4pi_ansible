@@ -13,8 +13,7 @@
         - rubygems
       state: present
   - name: Install the fpm gem
-    become_flags: 'su - -c'
-    shell:
-      cmd: "gem install fpm"
-    register: fpm_install
-    changed_when: fpm_install.stderr != ""
+    community.general.gem:
+      name: fpm
+      version: "{{ fpm_version }}"
+      state: present

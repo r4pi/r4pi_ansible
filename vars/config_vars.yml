@@ -7,3 +7,6 @@
 
 # Rust toolchain version
 rust_version: '1.67.1'
+
+# fpm package creation tool version
+fpm_version: '1.15.1'
