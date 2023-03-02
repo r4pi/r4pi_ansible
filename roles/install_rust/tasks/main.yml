@@ -8,8 +8,5 @@
 - block:
   - name: Install Rust toolchain with rustup
     shell:
-      cmd: "curl --proto '=https' --tls1.2 -sSf https://sh.rustup.rs/ | sh -s --default-toolchain={{ rust_version }} -- -y"
-      creates: "/home/{{ ansible_user }}/.cargo/bin/rustc"
-  when: "rust_version |\n
-      regex_search('^v\\d\\.\\d+\\.\\d+', multiline=True) |\n
-      trim | string not in version_rust | string"
+      cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain={{ rust_version }}"
+  when: "rust_version | string not in version_rust | string"
