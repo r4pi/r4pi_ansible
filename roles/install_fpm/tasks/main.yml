@@ -1,19 +1,12 @@
 ---
-- name: Install FPM
-  command: "fpm --version"
-  register: version_fpm
-  changed_when: false
-  failed_when: false
-
-- block:
-  - name: Install FPM deps ruby and rubygems
-    apt:
-      name:
-        - ruby
-        - rubygems
-      state: present
-  - name: Install the fpm gem
-    community.general.gem:
-      name: fpm
-      version: "{{ fpm_version }}"
-      state: present
+- name: Install FPM deps ruby and rubygems
+  apt:
+    name:
+      - ruby
+      - rubygems
+    state: present
+- name: Install the fpm gem
+  community.general.gem:
+    name: fpm
+    version: "{{ fpm_version }}"
+    state: present
