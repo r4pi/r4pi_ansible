@@ -5,6 +5,9 @@
 
 # Software Versions ###########################################################
 
+# R version
+r_version: '4.2.2'
+
 # Rust toolchain version
 rust_version: '1.67.1'
 
