@@ -1,12 +1,19 @@
 ---
 - name: Get the installed Rust toolchain version
-  command: "rustc --version"
+  command: "/home/{{ansible_user}}/.cargo/bin/rustc --version"
   register: version_rust
   changed_when: false
   failed_when: false
+  become: false
+
+- name: Current Rust version
+  debug:
+    msg: "Current Rust version: {{ version_rust }}"
+
 
 - block:
   - name: Install Rust toolchain with rustup
     shell:
       cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain={{ rust_version }}"
   when: "rust_version | string not in version_rust | string"
+  become: false

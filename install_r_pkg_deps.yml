@@ -20,7 +20,6 @@
     - name: Install common system dependencies
       apt:
         name:
-          - cargo
           - cmake
           - gdal-bin
           - libarchive-dev
@@ -49,3 +48,8 @@
           - pandoc
           - protobuf-compiler
         state: present
+
+    - name: Install Rust
+      import_role:
+        name: install_rust
+      tags: always
