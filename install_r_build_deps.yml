@@ -124,6 +124,7 @@
           - xfonts-utils
           - xvfb
         state: present
+
     - name: Install fpm
       import_role:
         name: install_fpm

@@ -10,7 +10,6 @@
   debug:
     msg: "Current Rust version: {{ version_rust }}"
 
-
 - block:
   - name: Install Rust toolchain with rustup
     shell:

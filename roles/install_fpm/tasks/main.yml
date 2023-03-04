@@ -5,6 +5,7 @@
       - ruby
       - rubygems
     state: present
+
 - name: Install the fpm gem
   community.general.gem:
     name: fpm

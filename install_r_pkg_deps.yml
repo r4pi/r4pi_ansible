@@ -52,4 +52,4 @@
     - name: Install Rust
       import_role:
         name: install_rust
-      tags: always
+      tags: rust
