@@ -7,3 +7,6 @@
 
 - name: Install R package builds dependencies
   import_playbook: install_r_pkg_deps.yml
+
+- name: Install R4Pi tools
+  import_playbook: install_r4pi_tools.yml
