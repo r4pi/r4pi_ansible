@@ -7,19 +7,12 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: git clone r4pi/pkg_builder
+- name: git clone r4pi git repos
   become: false
   git:
-    repo: "git@github.com:r4pi/pkg_builder.git"
-    dest: "/home/{{ ansible_user }}/r4pi/packages"
+    repo: "git@github.com:r4pi/{{ item }}.git"
+    dest: "/home/{{ ansible_user }}/r4pi/{{ item }}"
     clone: yes
     update: yes
-
-- name: git clone r4pi/buildr
-  become: false
-  git:
-    repo: "git@github.com:r4pi/buildr.git"
-    dest: "/home/{{ ansible_user }}/r4pi/buildr"
-    clone: yes
-    update: yes
+  with_items: "{{ github_projects }}"
 
