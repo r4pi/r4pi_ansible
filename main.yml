@@ -10,3 +10,6 @@
 
 - name: Install R4Pi tools
   import_playbook: install_r4pi_tools.yml
+
+- name: Additional install and config for the build primary
+  import_playbook: install_build_primary.yml
