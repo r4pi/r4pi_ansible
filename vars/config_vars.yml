@@ -13,3 +13,10 @@ rust_version: '1.67.1'
 
 # fpm package creation tool version
 fpm_version: '1.15.1'
+
+# Github repos
+
+github_projects:
+  - 'buildr'
+  - 'pkg_builder'
+
