@@ -2,12 +2,12 @@
 - name: Install common tools
   import_playbook: common_tools.yml
 
-- name: Install and configure build primary
-  import_playbook: buildprimary.yml
+- name: Install and configure R builders
+  import_playbook: rbuilders.yml
 
 - name: Install and configure package builders
   import_playbook: pkgbuilders.yml
 
-- name: Install and configure R builders
-  import_playbook: rbuilders.yml
+- name: Install and configure build primary
+  import_playbook: buildprimary.yml
 
