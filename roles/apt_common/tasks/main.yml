@@ -1,0 +1,13 @@
+---
+- name: Install common apt dependencies
+  become: true
+  apt:
+    name:
+      - htop
+      - jq
+      - rsync
+      - task-spooler
+      - tree
+      - vim
+      - weex
+    state: present

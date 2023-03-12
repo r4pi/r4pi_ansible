@@ -14,16 +14,11 @@
       tags: always
 
   tasks:
-    - name: Install common system dependencies
-      apt:
-        name:
-          - htop
-          - jq
-          - task-spooler
-          - tree
-          - vim
-          - weex
-        state: present
+    - name: Install common apt tools
+      import_role:
+        name: apt_common
+      tags: always
+
     - name: configure the working environment
       import_role:
         name: configure_bash
