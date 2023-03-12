@@ -1,2 +1,2 @@
 all:
-	ansible-playbook main.yml
+	ansible-playbook site.yml

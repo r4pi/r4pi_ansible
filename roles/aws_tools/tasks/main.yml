@@ -1,0 +1,9 @@
+---
+- name: Install AWS hosting tools
+  become: true
+  apt:
+    name:
+      - awscli
+      - s3cmd
+    state: present
+

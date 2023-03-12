@@ -1,10 +1,7 @@
 ---
-- name: Install R4Pi project specific tools and config
+- name: Install R4Pi build primary
   hosts: buildprimary
   become: true
-
-  vars_files:
-    - vars/config_vars.yml
 
   pre_tasks:
     - name: Load dynamic variable files
@@ -23,7 +20,18 @@
           - "reprepro"
         state: present
 
-    - name: Checkout git repos
+    - name: Install AWS hosting tools
+      import_role:
+        name: aws_tools
+      tags: always
+
+    - name: Install git repos
       import_role:
         name: checkout_repos
-      tags: r4pi
+      tags: always
+
+    - name: Install fpm
+      import_role:
+        name: install_fpm
+      tags: always
+

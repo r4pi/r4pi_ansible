@@ -9,6 +9,5 @@ fpm_version: '1.15.1'
 
 # Github repos                                                                  
 github_projects:                                                                
-  - 'r4pi'                                                                      
-  - 'r4pi-repo-conf'                                                            
-  - 'usage_data'   
+  - 'buildr'                                                                    
+ 

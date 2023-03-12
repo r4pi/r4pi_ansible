@@ -1,0 +1,16 @@
+---
+- name: Copy .bashrc
+  copy:
+    src: .bashrc
+    dest: "/home/{{ ansible_user }}/.bashrc"
+
+- name: Copy .bash_profile
+  copy:
+    src: .bash_profile
+    dest: "/home/{{ ansible_user }}/.bash_profile"
+
+- name: Copy .vimrc
+  copy:
+    src: .vimrc
+    dest: "/home/{{ ansible_user }}/.vimrc"
+

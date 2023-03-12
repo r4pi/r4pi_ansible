@@ -1,0 +1,34 @@
+---
+- name: Install package build dependencies
+  become: true
+  apt:
+    name:
+      - cmake
+      - gdal-bin
+      - libarchive-dev
+      - libcurl4-openssl-dev
+      - libgdal-dev
+      - libgeos-dev
+      - libgit2-dev
+      - libglpk-dev
+      - libgmp-dev
+      - libgmp3-dev
+      - libgsl0-dev
+      - libicu-dev
+      - libjq-dev
+      - libmagick++-dev
+      - libmpfr-dev
+      - libnode-dev
+      - libopenmpi-dev
+      - libpoppler-cpp-dev
+      - libproj-dev
+      - libprotobuf-dev
+      - libsodium-dev
+      - libsqlite3-dev
+      - libudunits2-dev
+      - libv8-dev
+      - libxml2-dev
+      - pandoc
+      - protobuf-compiler
+    state: present
+

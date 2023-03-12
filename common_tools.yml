@@ -1,10 +1,7 @@
 ---
 - name: Install Basic Services and Configurations
-  hosts: buildberries
+  hosts: all
   become: true
-
-  vars_files:
-    - vars/config_vars.yml
 
   pre_tasks:
     - name: Load dynamic variable files
@@ -20,12 +17,14 @@
     - name: Install common system dependencies
       apt:
         name:
-          - awscli
           - htop
           - jq
-          - s3cmd
           - task-spooler
           - tree
           - vim
           - weex
         state: present
+    - name: configure the working environment
+      import_role:
+        name: configure_bash
+      tags: always

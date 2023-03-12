@@ -1,0 +1,31 @@
+---
+- name: Install R package builders
+  hosts: pkgbuilders
+  become: true
+
+  pre_tasks:
+    - name: Load dynamic variable files
+      include_vars: "vars/architecture_vars_{{ ansible_architecture }}.yml"
+      tags: always
+
+    - name: Update packages
+      import_role:
+        name: update_packages
+      tags: always
+
+  tasks:
+    - name: Install apt dependencies
+      import_role:
+        name: pkg_build_deps
+      tags: always
+
+    - name: Install rust
+      import_role:
+        name: install_rust
+      tags: always
+
+    - name: Install package publishing tools
+      import_role:
+        name: aws_tools
+      tags: always
+

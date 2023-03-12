@@ -1,0 +1,36 @@
+---
+- name: Install R Builders
+  hosts: rbuilders
+  become: true
+
+  pre_tasks:
+    - name: Load dynamic variable files
+      include_vars: "vars/architecture_vars_{{ ansible_architecture }}.yml"
+      tags: always
+
+    - name: Update packages
+      import_role:
+        name: update_packages
+      tags: always
+
+  tasks:
+    - name: Install R build dependencies
+      import_role:
+        name: r_build_deps
+      tags: always
+
+    - name: Install FPM
+      import_role:
+        name: install_fpm
+      tags: always
+
+    - name: Install Rust
+      import_role:
+        name: install_rust
+      tags: always
+
+    - name: Install Rust
+      import_role:
+        name: install_rust
+      tags: always
+
