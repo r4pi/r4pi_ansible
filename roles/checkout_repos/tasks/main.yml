@@ -7,11 +7,12 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: git clone r4pi git repos
+- name: git clone r4pi git repos  # noqa: 401 git-latest latest
   become: false
   git:
     repo: "git@github.com:r4pi/{{ item }}.git"
     dest: "/home/{{ ansible_user }}/r4pi/{{ item }}"
+    version: "HEAD"
     clone: yes
     update: yes
   with_items: "{{ github_projects }}"

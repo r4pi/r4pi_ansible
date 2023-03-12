@@ -1,2 +1,14 @@
 ---
+galaxy_info:
+  role_name: aws_tools
+  author: R4Pi Team
+  description: Install useful AWS tools
+  company: R4Pi.org
+  license: MIT
+  platforms:
+    - name: RaspberryPiOS
+
+  min_ansible_version: 2.10
+
 dependencies: []
+

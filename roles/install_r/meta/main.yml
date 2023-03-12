@@ -1,2 +1,14 @@
 ---
+galaxy_info:
+  role_name: install_r
+  author: R4Pi Team
+  description: Installs the R language
+  company: R4Pi.org
+  license: MIT
+  platforms:
+    - name: RaspberryPiOS
+
+  min_ansible_version: 2.10
+
 dependencies: []
+

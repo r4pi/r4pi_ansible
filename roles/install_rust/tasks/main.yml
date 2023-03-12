@@ -1,7 +1,7 @@
 ---
 - name: Get the installed Rust toolchain version
   become: false
-  command: "/home/{{ansible_user}}/.cargo/bin/rustc --version"
+  command: "/home/{{ ansible_user }}/.cargo/bin/rustc --version"
   register: version_rust
   changed_when: false
   failed_when: false

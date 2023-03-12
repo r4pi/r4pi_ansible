@@ -1,3 +1,14 @@
-
 ---
+galaxy_info:
+  role_name: update_packages
+  author: R4Pi Team
+  description: Updates installed apt packages
+  company: R4Pi.org
+  license: MIT
+  platforms:
+    - name: RaspberryPiOS
+
+  min_ansible_version: 2.10
+
 dependencies: []
+

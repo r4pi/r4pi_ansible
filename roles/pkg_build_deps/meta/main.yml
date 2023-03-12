@@ -1,2 +1,14 @@
 ---
+galaxy_info:
+  role_name: pkg_build_deps
+  author: R4Pi Team
+  description: Installs package build dependencies
+  company: R4Pi.org
+  license: MIT
+  platforms:
+    - name: RaspberryPiOS
+
+  min_ansible_version: 2.10
+
 dependencies: []
+

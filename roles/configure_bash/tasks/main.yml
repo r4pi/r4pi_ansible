@@ -3,14 +3,23 @@
   copy:
     src: .bashrc
     dest: "/home/{{ ansible_user }}/.bashrc"
+    mode: 0644
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
 
 - name: Copy .bash_profile
   copy:
     src: .bash_profile
     dest: "/home/{{ ansible_user }}/.bash_profile"
+    mode: 0644
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
 
 - name: Copy .vimrc
   copy:
     src: .vimrc
     dest: "/home/{{ ansible_user }}/.vimrc"
+    mode: 0644
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
 
