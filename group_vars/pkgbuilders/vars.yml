@@ -11,3 +11,9 @@ rust_version: '1.67.1'
 github_projects:                                                                
   - 'pkg_builder'                                                               
  
+
+# s3cfg config for s3cmd
+access_key: "{{ vault_access_key }}"
+gpg_passphrase: "{{ vault_gpg_passphrase }}"
+secret_key: "{{ vault_secret_key }}"
+

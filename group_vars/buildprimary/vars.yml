@@ -12,3 +12,10 @@ github_projects:
   - 'r4pi'                                                                      
   - 'r4pi-repo-conf'                                                            
   - 'usage_data'   
+
+
+# s3cfg config for s3cmd
+access_key: "{{ vault_access_key }}"
+gpg_passphrase: "{{ vault_gpg_passphrase }}"
+secret_key: "{{ vault_secret_key }}"
+

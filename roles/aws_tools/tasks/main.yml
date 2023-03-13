@@ -7,3 +7,11 @@
       - s3cmd
     state: present
 
+- name: Apply .s3cfg
+  ansible.builtin.template:
+    src: s3cfg
+    dest: "/home/{{ ansible_user }}/.s3cfg"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
+

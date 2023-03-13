@@ -24,13 +24,3 @@
         name: install_fpm
       tags: always
 
-    - name: Install Rust
-      import_role:
-        name: install_rust
-      tags: always
-
-    - name: Install Rust
-      import_role:
-        name: install_rust
-      tags: always
-
