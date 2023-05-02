@@ -19,6 +19,11 @@
         name: r_build_deps
       tags: always
 
+    - name: Install r4pi tools from git
+      import_role:
+        name: checkout_repos
+      tags: always
+
     - name: Install FPM
       import_role:
         name: install_fpm
