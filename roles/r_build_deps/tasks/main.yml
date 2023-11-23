@@ -1,5 +1,5 @@
 ---
-- name: Install R build dependencies
+- name: Install R build dependencies a-c
   become: true
   apt:
     name:
@@ -9,6 +9,11 @@
       - autotools-dev
       - bison
       - cmake
+    state: present
+- name: Install R build dependencies d-f
+  become: true
+  apt:
+    name:
       - debhelper
       - default-jdk
       - default-jdk-headless
@@ -18,10 +23,20 @@
       - dh-strip-nondeterminism
       - dwz
       - fonts-lmodern
+    state: present
+- name: Install R build dependencies g-i
+  become: true
+  apt:
+    name:
       - gettext
       - gfortran
       - gir1.2-harfbuzz-0.0
       - intltool-debian
+    state: present
+- name: Install R build dependencies j-l
+  become: true
+  apt:
+    name:
       - libarchive-zip-perl
       - libbison-dev
       - libblkid-dev
@@ -35,6 +50,11 @@
       - libglib2.0-dev
       - libglib2.0-dev-bin
       - libgraphite2-dev
+    state: present
+- name: Install R build dependencies libh-libp
+  become: true
+  apt:
+    name:
       - libharfbuzz-dev
       - libharfbuzz-gobject0
       - libjpeg-dev
@@ -50,9 +70,13 @@
       - libpixman-1-dev
       - libpotrace0
       - libptexenc1
+    state: present
+- name: Install R build dependencies libr-libu
+  become: true
+  apt:
+    name:
       - libreadline-dev
       - libselinux1-dev
-      - libsepol1-dev
       - libsigsegv2
       - libsombok3
       - libssh-dev
@@ -62,6 +86,11 @@
       - libtiff-dev
       - libtool
       - libunicode-linebreak-perl
+    state: present
+- name: Install R build dependencies libv-libz
+  become: true
+  apt:
+    name:
       - libx11-dev
       - libxcb-render0-dev
       - libxcb-shm0-dev
@@ -76,13 +105,21 @@
       - libxt-dev
       - libxxhash0
       - libzzip-0-13
+    state: present
+- name: Install R build dependencies m-p
+  become: true
+  apt:
+    name:
       - m4
       - mpack
-      - openjdk-11-jdk
-      - openjdk-11-jre
       - pango1.0-tools
       - po-debconf
       - preview-latex-style
+    state: present
+- name: Install R build dependencies q-t
+  become: true
+  apt:
+    name:
       - t1utils
       - tcl8.6
       - tcl8.6-dev
@@ -91,7 +128,6 @@
       - texlive-base
       - texlive-binaries
       - texlive-extra-utils
-      - texlive-fonts-extra
       - texlive-fonts-recommended
       - texlive-latex-base
       - texlive-latex-extra
@@ -100,6 +136,11 @@
       - texlive-plain-generic
       - tk8.6
       - tk8.6-dev
+    state: present
+- name: Install R build dependencies t-z
+  become: true
+  apt:
+    name:
       - x11proto-scrnsaver-dev
       - x11proto-xext-dev
       - xfonts-base
@@ -107,4 +148,19 @@
       - xfonts-utils
       - xvfb
     state: present
+- name: Install debian 11 specific dependencies
+  become: true
+  apt:
+    name:
+      - libsepol1-dev
+    state: present
+  when: ansible_distribution_version == "11"
+
+- name: Install debian 12 specific dependencies
+  become: true
+  apt:
+    name:
+      - libsepol-dev
+    state: present
+  when: ansible_distribution_version == "12"
 

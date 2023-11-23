@@ -3,11 +3,13 @@
   become: true
   apt:
     name:
+      - git
       - htop
       - jq
       - rsync
       - task-spooler
       - tree
+      - unattended-upgrades
       - vim
       - weex
     state: present

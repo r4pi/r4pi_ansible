@@ -18,7 +18,6 @@
       - libjq-dev
       - libmagick++-dev
       - libmpfr-dev
-      - libnode-dev
       - libopenmpi-dev
       - libpoppler-cpp-dev
       - libproj-dev

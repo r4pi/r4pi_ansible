@@ -16,6 +16,5 @@
       cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain={{ rust_version }}"
       # Ansible recommends `get_url` for this cmd, but since we're passing
       # to the shell, we'll just suppress that warning
-      warn: false
   when: "rust_version | string not in version_rust | string"
   become: false
