@@ -24,6 +24,7 @@
       - libprotobuf-dev
       - libsodium-dev
       - libsqlite3-dev
+      - libtbb-dev
       - libudunits2-dev
       - libv8-dev
       - libxml2-dev
