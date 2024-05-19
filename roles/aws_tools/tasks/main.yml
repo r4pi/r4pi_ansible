@@ -1,11 +1,28 @@
 ---
-- name: Install AWS hosting tools
+- name: Install s3cmd
+  become: true
+  apt:
+    name:
+      - s3cmd
+    state: present
+
+- name: Install awscli for Debian
   become: true
   apt:
     name:
       - awscli
-      - s3cmd
     state: present
+  when: ansible_distribution == "Debian"
+
+- name: install aws cli for Ubuntu
+  become: true
+  community.general.snap:
+    name: aws-cli
+    state: present
+    classic: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "noble"
+
+
 
 - name: Apply .s3cfg
   ansible.builtin.template:
