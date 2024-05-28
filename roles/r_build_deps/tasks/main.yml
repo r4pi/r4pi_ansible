@@ -148,21 +148,21 @@
       - xfonts-utils
       - xvfb
     state: present
-- name: Install debian 11 specific dependencies
+- name: Install debian bullseye specific dependencies
   become: true
   apt:
     name:
       - libsepol1-dev
     state: present
-  when: ansible_distribution_version == "11"
+  when: ansible_distribution_release == "bullseye"
 
-- name: Install debian 12 specific dependencies
+- name: Install debian bookworm specific dependencies
   become: true
   apt:
     name:
       - libsepol-dev
     state: present
-  when: ansible_distribution_version == "12"
+  when: ansible_distribution_release == "bookworm"
 
 - name: Install Ubuntu 24.04 specific dependencies
   become: true

@@ -32,3 +32,20 @@
       - protobuf-compiler
     state: present
 
+- name: Create symlink for R
+  ansible.builtin.file:
+    src: /opt/R/release/bin/R
+    dest: /usr/bin/R
+    owner: root
+    group: root
+    state: link
+    force: yes
+
+- name: Create symlink for Rscript
+  ansible.builtin.file:
+    src: /opt/R/release/bin/Rscript
+    dest: /usr/bin/Rscript
+    owner: root
+    group: root
+    state: link
+    force: yes
