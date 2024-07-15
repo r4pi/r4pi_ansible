@@ -6,10 +6,16 @@
       - git
       - htop
       - jq
+      - mc
       - rsync
       - task-spooler
       - tree
       - unattended-upgrades
       - vim
-      - weex
     state: present
+- name: Remove unwanted apt dependencies
+  become: true
+  apt:
+    name:
+      - weex
+    state: absent
